@@ -1,4 +1,4 @@
-![](doc\img\LizCubic-F.jpg)
+<img src="doc\img\LizCubic-F.png" style="zoom:67%;" />
 
 ## 简介
 
@@ -20,9 +20,9 @@ LizCubic借鉴了稚晖君[HoloCubic](https://github.com/peng-zhihui/HoloCubic)�
 
 2. 尾部放弃使用TypeC接口直插设计，伸出一段软线+TypeC母口，尾部可使用一个线尾巴，我使用的线尾巴见图。
 
-<img src="doc\img\尾部.png"  style="zoom:33%;" />
+<img src="doc\img\尾部.png" style="zoom:33%;" />
 
-![image-20220407013338655](doc\img\线尾巴.png)
+<img src="doc\img\线尾巴.png" style="zoom:67%;" />
 
 3. 尾部开了个正方形槽，以方便4G天线的嵌入。上图尾部带点红色的便为4G天线。
 
@@ -82,7 +82,7 @@ LizCubic的硬件与其他Cubic完全不同，区别如下：
 
 项目中，我已为flash挂载了文件系统，flash中的目录如下图所示。
 
-![image-20220407195125205](doc\img\资源目录.png)
+<img src="doc\img\资源目录.png" style="zoom:100%;" />
 
 在成功编译好工程并烧录后，通过USB转串口模块连接串口1（PA9、PA10）到电脑端，电脑端使用Xshell进行连接，便可进入系统shell命令行界面，如图所示。
 
