@@ -1,0 +1,14 @@
+from building import *
+import rtconfig
+cwd  = GetCurrentDir()
+src=[]
+CPPPATH=[]
+if GetDepend(['Board_USING_EXT_FLASH','BSP_USING_QSPI_FLASH']):
+    src += Glob('drv_qspi_flash.c')
+if GetDepend(['Board_USING_EXT_FLASH','BSP_USING_SPI_FLASH']):
+    src += Glob('drv_spi_flash.c')
+LOCAL_CCFLAGS = ''
+
+group = DefineGroup('Drivers', src, depend = ['Board_USING_EXT_FLASH'], CPPPATH = CPPPATH, LOCAL_CCFLAGS = LOCAL_CCFLAGS)
+
+Return('group')

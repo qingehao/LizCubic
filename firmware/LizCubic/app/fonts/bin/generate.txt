@@ -1,0 +1,1 @@
+npx lv_font_conv --no-compress --format bin --font F:\LiJiaJia\LizCubic\firmware\LizCubic\app\fonts\ttf\msyhbd.ttf --bpp 4 --size 24 -o F:\LiJiaJia\LizCubic\firmware\LizCubic\app\fonts\bin\msyhbd_22_ex.bin -r 0x20-0x7f --symbols  东西南北风周一二三四五六日级优良轻度中重严最低气温高烟台泰安京上海深圳°济年月目标在起已经星期七八九十广州庆川空很好，可以外出活动呼吸新鲜拥抱大自然！国质量心脑血管疾病系统雾红色橙蓝绿赤黄青紫预警服务发布今天。儿童、老人及脏患者应尽减少体力消耗的户除极数对污染物特别敏感群公众没有危害

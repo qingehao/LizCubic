@@ -1,0 +1,10 @@
+from building import *
+import rtconfig
+cwd     = GetCurrentDir()
+src = []
+src     += Glob('*.c')
+CPPPATH = [cwd]
+LOCAL_CCFLAGS = ''
+group = DefineGroup('fal', src, depend = ['PKG_USING_FAL'], CPPPATH = CPPPATH, LOCAL_CCFLAGS = LOCAL_CCFLAGS)
+
+Return('group')

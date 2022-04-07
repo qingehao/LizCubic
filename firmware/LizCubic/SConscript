@@ -1,0 +1,68 @@
+from building import *
+import rtconfig
+Import('SDK_LIB')
+cwd  = GetCurrentDir()
+startup_path_prefix = SDK_LIB
+src_lib = []
+inc_lib = []
+src=[]
+inc=[]
+LOCAL_CCFLAGS = ''
+CPPDEFINES = ['ARM_MATH_LOOPUNROLL']
+if GetDepend(['Board_USING_LizCubic']):
+    src += Glob('*.c')
+
+    src += Glob('app/fonts/*.c')
+    src += Glob('app/hearbeat/*.c')
+    src += Glob('app/imgs/*.c')
+    src += Glob('app/spectrum/*.c')
+    src += Glob('app/weather/*.c')
+    src += Glob('app/anniversary/*.c')
+
+    src += Glob('sys/*.c')
+    src += Glob('common/*.c')
+    src += Glob('network/*.c')
+    src += Glob('bsp/*.c')
+    src += Glob('bsp/LCD/*.c')
+    src += Glob('bsp/ADC_FFT/*.c')
+    src += Glob('bsp/IMU/*.c')
+    src += Glob('bsp/WS2812B/*.c')
+    src += Glob('bsp/KVDB/*.c')
+    src += Glob('bsp/BH1750/*.c')
+
+    inc =inc + [cwd]
+    inc =inc + [cwd+'/app']
+    inc =inc + [cwd+'/app/weather']
+    inc =inc + [cwd+'/app/spectrum']
+    inc =inc + [cwd+'/app/hearbeat']
+    inc =inc + [cwd+'/app/anniversary']
+
+    inc =inc + [cwd+'/bsp']
+    inc =inc + [cwd+'/bsp/KVDB']
+    inc =inc + [cwd+'/bsp/LCD']
+    inc =inc + [cwd+'/bsp/ADC_FFT']
+    inc =inc + [cwd+'/bsp/IMU']
+    inc =inc + [cwd+'/bsp/WS2812B']
+    inc =inc + [cwd+'/bsp/BH1750']
+
+    inc =inc + [cwd+'/sys']
+    inc =inc + [cwd+'/common']
+    inc =inc + [cwd+'/network']
+    inc =inc + [cwd+'/config']
+
+    src_lib += [startup_path_prefix+ '\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_adc.c']
+    src_lib += [startup_path_prefix + '\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_adc_ex.c']
+    src_lib += [startup_path_prefix + '\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim.c']
+    src_lib += [startup_path_prefix + '\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim_ex.c']
+    inc_lib   = [startup_path_prefix + '\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc']
+
+if rtconfig.PLATFORM == 'gcc': # GCC
+    LOCAL_CCFLAGS += ' -std=c99'
+elif rtconfig.PLATFORM == 'armcc': # Keil AC5
+    LOCAL_CCFLAGS += ' --c99 --gnu -g -W'
+elif rtconfig.PLATFORM == 'armclang': # Keil AC6
+    LOCAL_CCFLAGS += ' -std=c99 -g -w'
+
+group      = DefineGroup('LizCubic', src, depend = ['Board_USING_LizCubic'], CPPPATH = inc, CPPDEFINES = CPPDEFINES, LOCAL_CCFLAGS = LOCAL_CCFLAGS)
+group_lib = DefineGroup('Libraries',src_lib, depend = ['Board_USING_LizCubic'], CPPPATH = inc_lib, LOCAL_CCFLAGS = LOCAL_CCFLAGS)
+Return('group')
