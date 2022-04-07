@@ -1,4 +1,4 @@
-![](C:\Users\QinGe\AppData\Roaming\Typora\typora-user-images\image-20220407171748866.png)
+![](doc\img\LizCubic-F.jpg)
 
 ## 简介
 
@@ -16,15 +16,13 @@ LizCubic借鉴了稚晖君[HoloCubic](https://github.com/peng-zhihui/HoloCubic)�
 
 1. 外壳底部开窗设计，以方便SIM卡的插拔和音频的拾取
 
-<img src="F:\LiJiaJia\LizCubic\repo\LizCubic\doc\img\结构底部.png" alt="image-20220407011626147" style="zoom:67%;" />
+<img src="doc\img\结构底部.png" style="zoom: 67%;" />
 
 2. 尾部放弃使用TypeC接口直插设计，伸出一段软线+TypeC母口，尾部可使用一个线尾巴，我使用的线尾巴见图。
 
-<img src="F:\LiJiaJia\LizCubic\repo\LizCubic\doc\img\外壳尾部.png" alt="image-20220407012846088" style="zoom: 50%;" />
+<img src="doc\img\尾部.png"  style="zoom:33%;" />
 
-<img src="F:\LiJiaJia\LizCubic\repo\LizCubic\doc\img\尾部.png" alt="image-20220407195330910" style="zoom:33%;" />
-
-![image-20220407013338655](F:\LiJiaJia\LizCubic\repo\LizCubic\doc\img\线尾巴.png)
+![image-20220407013338655](doc\img\线尾巴.png)
 
 3. 尾部开了个正方形槽，以方便4G天线的嵌入。上图尾部带点红色的便为4G天线。
 
@@ -52,7 +50,7 @@ LizCubic的硬件与其他Cubic完全不同，区别如下：
 
 本仓库中未包含项目中使用的软件包，请下载ENV工具后，使用`pkgs --update`命令下载更新所使用的软件包，而后使用`scons --target=mdk5`命令构建并生成MDK工程（具体使用方法请移步[RT-Thread官网资料中心](https://www.rt-thread.org/document/site/#/development-tools/env/env)）。构建完成后即可打开MDK工程文件，本项目推荐使用MDK AC6编译器进行编译，并选择-Os优化等级 和 开启LTO优化，可发挥最大性能。如图所示。
 
-<img src="F:\LiJiaJia\LizCubic\repo\LizCubic\doc\img\MDK优化.png" alt="image-20220407170428882" style="zoom:67%;" />
+<img src="doc\img\MDK优化.png" style="zoom:67%;" />
 
 #### 代码修改
 
@@ -60,7 +58,7 @@ LizCubic的硬件与其他Cubic完全不同，区别如下：
 
    在`firmware\LizCubic\config\liz_config.h`中修改图中两处地方。天气的获取使用的是[一刻天气](https://www.yiketianqi.com/index)API，可自行去注册账号，获得这两个值。
    
-   <img src="F:\LiJiaJia\LizCubic\repo\LizCubic\doc\img\weather_api修改.png" alt="image-20220407170121069" style="zoom:67%;" />
+   <img src="doc\img\weather_api修改.png" style="zoom:67%;" />
 
 2. ##### at_device软件包修改
 
@@ -72,7 +70,7 @@ LizCubic的硬件与其他Cubic完全不同，区别如下：
 
    修改`firmware\LizCubic\config\liz_config.h`如图所示宏定义为自己的MQTT服务器即可。
 
-   <img src="C:\Users\QinGe\AppData\Roaming\Typora\typora-user-images\image-20220407170223682.png" alt="image-20220407170223682" style="zoom:67%;" />
+   <img src="doc\img\mqtt修改.png" style="zoom:67%;" />
 
 #### 代码编译
 
@@ -84,11 +82,11 @@ LizCubic的硬件与其他Cubic完全不同，区别如下：
 
 项目中，我已为flash挂载了文件系统，flash中的目录如下图所示。
 
-![image-20220407195125205](F:\LiJiaJia\LizCubic\repo\LizCubic\doc\img\资源目录.png)
+![image-20220407195125205](doc\img\资源目录.png)
 
 在成功编译好工程并烧录后，通过USB转串口模块连接串口1（PA9、PA10）到电脑端，电脑端使用Xshell进行连接，便可进入系统shell命令行界面，如图所示。
 
-<img src="F:\LiJiaJia\LizCubic\repo\LizCubic\doc\img\系统命令行.png" alt="image-20220407195035065" style="zoom:67%;" />
+<img src="doc\img\系统命令行.png" style="zoom:67%;" />
 
 输入`ry /fonts`命令后回车，右键终端界面，选择"`传输->YMODEM->用YMODEM发送`，上传`firmware\LizCubic\app\fonts\bin\msyhbd_22_ex.bin`文件到flash中。该文件为天气信息所用到的一些汉字。
 
@@ -105,7 +103,7 @@ LizCubic的硬件与其他Cubic完全不同，区别如下：
 
 ## 支持
 
-<img src="F:\LiJiaJia\LizCubic\repo\LizCubic\doc\img\赞赏.png" alt="image-20220407053613613" style="zoom:50%;" /> 
+<img src="doc\img\赞赏.png" style="zoom:50%;" /> 
 
 如果 LizCubic 解决了你的问题，不妨扫描上面二维码请我 **喝杯咖啡**~ 
 
